@@ -20,13 +20,18 @@ public class PasswordEncodingService {
             return "";
         MessageDigest md = null;
         try {
-            md = MessageDigest.getInstance("MD5");
+            md = MessageDigest.getInstance("SHA-1");
             md.update(key.getBytes());
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        if (md != null)
-            return new String(md.digest());
+        if (md != null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b: md.digest()){
+                sb.append(b);
+            }
+            return sb.toString();
+        }
         else
             return "";
     }
