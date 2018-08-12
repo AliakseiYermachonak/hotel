@@ -25,7 +25,6 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/npm.js"></script>
     <script src="js/index.js"></script>
-
 </head>
 <body>
 

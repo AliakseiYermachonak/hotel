@@ -1,4 +1,3 @@
-
 function main(form){
     if(testLogin(form) && testPassword(form)){
         return true;
@@ -8,7 +7,7 @@ function main(form){
 
 function testLogin(form){
     var login = form.login.value;
-    if(!/^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я0-9-_\.]{1,20}$/.test(login)){
+    if(!/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/.test(login)){
         alert("Login not OK");
         return false;
     }

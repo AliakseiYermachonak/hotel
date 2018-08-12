@@ -44,7 +44,7 @@ public class RegistrationCommand implements Command {
 
         User user = daoUser.get(login);
         resp.setContentType("text/html; charset=UTF-8");
-        if (user != null) {
+        if (login.equals(user.getLogin())) {
             message = LOGIN_BUSY;
             LOGGER.debug("User with suchlike login exists.");
         } else if (password.equals(rePassword)) {
