@@ -99,7 +99,7 @@
 <footer>
     <nav class="navbar navbar-default">
         <div class="container-fluid text-center" style="padding-top: 15px;">
-            &copy;2017 За копипаст сразу по щам!</div>
+            &copy;2018</div>
     </nav>
 </footer>
 </body>

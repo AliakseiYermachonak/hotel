@@ -33,8 +33,6 @@
 </head>
 <body>
 
-<jsp:include page="/loginHeader.jsp" flush="true" />
-
 <nav class="navbar navbar-default">
     <div class="container-fluid text-center"
          style="padding-top: 10px; font-size: 30px;">
