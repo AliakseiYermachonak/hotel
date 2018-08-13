@@ -122,6 +122,10 @@
             alert("Date from past");
             return false;
         }
+        if(date.getFullYear() != now.getFullYear()){
+            alert("Select this year");
+            return false;
+        }
         return true;
     }
 </script>

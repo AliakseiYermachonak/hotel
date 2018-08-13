@@ -7,7 +7,7 @@ function main(form){
 
 function testLogin(form){
     var login = form.login.value;
-    if(!/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/.test(login)){
+    if(!/^[a-zA-Zа-я][a-zA-Zа-я0-9-_\.]{1,20}$/.test(login)){
         alert("Login not OK");
         return false;
     }
