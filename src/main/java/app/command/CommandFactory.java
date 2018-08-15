@@ -95,6 +95,10 @@ public class CommandFactory {
                 LOGGER.debug("process user command started");
                 return new AdminProcessUserCommand();
             }
+            case "userProcessRequest": {
+                LOGGER.debug("new userProcessRequest request command started");
+                return new UserProcessRequsetCommand();
+            }
 			}
 		}
 		return new LoginCommand();

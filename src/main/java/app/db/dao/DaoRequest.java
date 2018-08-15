@@ -109,7 +109,7 @@ public class DaoRequest implements DaoEntity<Request> {
 	public void delete(Request ob) {
         Connection cn = ConnectionPool.getInstance().getConnection();
         try {
-			PreparedStatement ps = cn.prepareStatement("UPDATE request SET request_status = 5 WHERE id_request = " + ob.getIdRequest());
+			PreparedStatement ps = cn.prepareStatement("DELETE FROM request WHERE id_request = " + ob.getIdRequest());
 			ps.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

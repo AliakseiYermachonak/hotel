@@ -40,8 +40,9 @@ public class UserRequestService {
     }
 
     /**
-     * Method takes the request of a certain User.
-     * @return List of new united orders
+     * Method shows the requests of a certain User.
+     * @param id User's identifier
+     * @return List of new united requests
      */
     public List<URequest> getUserRequests(int id) {
         String login = "";

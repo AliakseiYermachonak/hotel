@@ -41,7 +41,6 @@
                                     <input type="hidden" name="command" value="processUser"/>
                                     <input type="hidden" name="choice" value="sAdmin"/>
                                     <input type="hidden" name="idUser" value="${uUsers.idUser}"/>
-                                    <input type="hidden" name="menu" value="users"/>
                                     <button class="btn btn-success" type="submit" name="OK">
                                         <fmt:message key="admin.sAdmin" />
                                     </button>
@@ -50,7 +49,6 @@
                                     <input type="hidden" name="command" value="processUser"/>
                                     <input type="hidden" name="choice" value="sUser"/>
                                     <input type="hidden" name="idUser" value="${uUsers.idUser}"/>
-                                    <input type="hidden" name="menu" value="users"/>
                                     <button class="btn btn-warning" type="submit" name="not OK">
                                         <fmt:message key="admin.sUser" />
                                     </button>
@@ -59,7 +57,6 @@
                                     <input type="hidden" name="command" value="processUser"/>
                                     <input type="hidden" name="choice" value="ban"/>
                                     <input type="hidden" name="idUser" value="${uUsers.idUser}"/>
-                                    <input type="hidden" name="menu" value="users"/>
                                     <button class="btn btn-danger" type="submit" name="not OK">
                                         <fmt:message key="admin.ban" />
                                     </button>
@@ -68,7 +65,6 @@
                                     <input type="hidden" name="command" value="processUser"/>
                                     <input type="hidden" name="choice" value="userInfo"/>
                                     <input type="hidden" name="idUser" value="${uUsers.idUser}"/>
-                                    <input type="hidden" name="menu" value="userInfo"/>
                                     <button class="btn btn-info" type="submit" name="not OK">
                                         <fmt:message key="admin.info" />
                                     </button>

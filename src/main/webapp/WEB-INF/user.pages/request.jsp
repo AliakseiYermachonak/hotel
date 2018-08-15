@@ -29,6 +29,9 @@
                         <th>
                             <fmt:message key="common.reqStat" />
                         </th>
+                        <th>
+                            <fmt:message key="common.proceed" />
+                        </th>
                     </tr>
 
                     </thead>
@@ -43,6 +46,22 @@
                             <td><c:out value="${uRequests.rooms}" /></td>
                             <td>
                                 <fmt:message key="${uRequests.requestStatus}" />
+                            </td>
+                            <td>
+                                <form c class="navbar-form pull-left" action="basic" method="POST">
+                                    <input type="hidden" name="command" value="userProcessRequest"/>
+                                    <input type="hidden" name="idRequest" value="${uRequests.idRequest}"/>
+                                    <c:if test="${uRequests.idRequestStatus== 1 }">
+                                        <button class="btn btn-warning" type="submit" name="not OK">
+                                            <fmt:message key="common.delete" />
+                                        </button>
+                                    </c:if>
+                                    <c:if test="${uRequests.idRequestStatus == 5 }">
+                                        <button class="btn btn-warning" type="submit" name="not OK">
+                                            <fmt:message key="common.delete" />
+                                        </button>
+                                    </c:if>
+                                </form>
                             </td>
                         </tr>
                     </c:forEach>
