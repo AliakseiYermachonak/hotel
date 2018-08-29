@@ -30,14 +30,15 @@ public class AdminUserCommand implements Command {
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
 
         HttpSession session = req.getSession();
-        String url;
+
         List<UUser> uUsers = new ArrayList<>();
         User user = (User) session.getAttribute("user");
         if((user.getIdRole() == 3) && (user.getIdDelStatus() == 1)) {
             uUsers = new AdminUserService().getUUsers();
+            LOGGER.debug("Creating list of users");
             req.setAttribute("info", ADMIN_USER);
         } else {
-            LOGGER.debug("To write about mistake here admin req command");
+            LOGGER.debug("Not an admin is trying to make something important");
             req.setAttribute("info", NOT_ADMIN);
         }
         req.setAttribute("uUsers", uUsers);

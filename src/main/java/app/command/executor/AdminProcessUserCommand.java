@@ -66,7 +66,7 @@ AdminProcessUserCommand implements Command {
         }
         } else {
             req.setAttribute("info", NOT_ADMIN);
-            LOGGER.debug("To write about mistake here admin req command");
+            LOGGER.debug("Not an admin is trying to make something important");
         }
         return URL;
     }

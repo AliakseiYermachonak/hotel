@@ -37,7 +37,7 @@ public class AdminRequestCommand implements Command {
             uRequestNew = new AdminNewRequestService().getNewRequests();
         } else {
             req.setAttribute("info", NOT_ADMIN);
-            LOGGER.debug("To write about mistake here admin req command");
+            LOGGER.debug("Not an admin is trying to make something important");
         }
         req.setAttribute("uRequestNew", uRequestNew);
         return URL;

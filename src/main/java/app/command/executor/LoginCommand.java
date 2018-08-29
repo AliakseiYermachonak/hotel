@@ -33,7 +33,7 @@ public class LoginCommand implements Command {
 		String login = req.getParameter("login");
 		String inPassword = req.getParameter("password");
         String s = inPassword+login.hashCode();
-        //String password = inPassword;
+
 		String password = new PasswordEncodingService().encrypt(s);
 		User user = new DaoUser().get(login);
 

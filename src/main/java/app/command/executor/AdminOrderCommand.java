@@ -38,6 +38,7 @@ public class AdminOrderCommand implements Command {
         User user = (User) session.getAttribute("user");
         if((user.getIdRole() == 3) && (user.getIdDelStatus() == 1)) {
             message = NEW_ORDERS;
+            LOGGER.debug("Starting to get the list of orders for admin.");
             uOrders = new AdminOrderService().getUOrders();
         } else {
             message = NOT_ADMIN;

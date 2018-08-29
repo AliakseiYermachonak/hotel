@@ -29,7 +29,7 @@ public class AdminUserInfoCommand implements Command {
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
 
         HttpSession session = req.getSession();
-        String url;
+
         User userForInfo = null;
         List<UserInfo> usersInfo = null;
 
@@ -40,7 +40,7 @@ public class AdminUserInfoCommand implements Command {
             req.setAttribute("info", ADMIN_USER_INFO);
         } else {
             req.setAttribute("info", NOT_ADMIN);
-            LOGGER.debug("To write about mistake here admin req command");
+            LOGGER.debug("Not an admin is trying to make something important");
         }
         req.setAttribute("userForInfo", userForInfo);
         req.setAttribute("usersInfo", usersInfo);

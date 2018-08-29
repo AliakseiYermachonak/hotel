@@ -30,14 +30,13 @@ public class AdminRoomCommand implements Command {
     public String execute(HttpServletRequest req, HttpServletResponse resp) {
 
         HttpSession session = req.getSession();
-        String url;
         List<URoom> uRooms = new ArrayList<>();
         User user = (User) session.getAttribute("user");
         if((user.getIdRole() == 3) && (user.getIdDelStatus() == 1)) {
             req.setAttribute("info", ADMIN_ROOM);
             uRooms = new AdminRoomService().getURooms();
         } else {
-            LOGGER.debug("To write about mistake here admin req command");
+            LOGGER.debug("Not an admin is trying to make something important");
             req.setAttribute("info", NOT_ADMIN);
         }
         req.setAttribute("uRooms", uRooms);

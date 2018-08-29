@@ -53,7 +53,6 @@ public class CreateNewRequestService {
                         request.getRooms(), request.getIdRequestStatus());
             }
         }
-        //new UserRequestCommand().execute(req, resp);
     }
 
 }

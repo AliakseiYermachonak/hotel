@@ -28,10 +28,7 @@ public class AdminProcessRequestService {
     private DaoRequest daoRequest;
     private HttpServletRequest req;
 
-    private List<RoomType> roomTypes = null;
-    private List<User> users = null;
-    private List<RequestStatus> requestStatuses = null;
-    private List<URequestNew> uRequests = null;
+
 
     public AdminProcessRequestService(HttpServletRequest req){
         this.req = req;

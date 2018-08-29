@@ -30,8 +30,7 @@ public class L7nCommand implements Command {
             return new AdminRequestCommand().execute(req, resp);
         } else if(req.getParameter("who").equals("user")){
             LOGGER.debug("user in l7n");
-            String sCommand = req.getParameter("sCommand");
-            Command cCommand = CommandFactory.getInstance().getCommand("userRooms");
+
             return new UserRequestCommand().execute(req, resp);
         } else {
             return URL;

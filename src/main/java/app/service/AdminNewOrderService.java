@@ -55,7 +55,7 @@ public class AdminNewOrderService {
 
         orders = (ArrayList<Order>) session.getAttribute("orders");
         int idRequest = Integer.parseInt(req.getParameter("idRequest"));
-        String document = req.getParameter("userInfo");
+
         String sDiscount = req.getParameter("discount");
         float discount;
         try {

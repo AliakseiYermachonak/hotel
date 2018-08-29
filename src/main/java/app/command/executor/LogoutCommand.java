@@ -22,6 +22,7 @@ public class LogoutCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) {
 
+		LOGGER.debug("User i leaving the building.");
 		HttpSession session = req.getSession();
         session.invalidate();
         new UserRoomCommand().execute(req, resp);
