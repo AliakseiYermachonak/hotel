@@ -16,22 +16,49 @@
     <title>Room page</title>
 
     <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
+    href="css/bootstrap.css">
 
     <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-          crossorigin="anonymous">
+          href="css/bootstrap-theme.css">
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/npm.js"></script>
 
 </head>
 <body>
+
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="http://localhost:8080/index.jsp">
+                <fmt:message key="index.hotel" />
+            </a>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <div class="btn-group btn-group-sm pull-left">
+                <form class="navbar-form pull-left" action="basic" method="POST">
+                    <input type="hidden" name="command" value="lang">
+                    <input type="hidden" name="who" value="guest">
+                    <input type="hidden" name="lang" value="ru_RU">
+                    <button class="btn btn-info" type="submit" name="RU">
+                        RU
+                    </button>
+                </form>
+                <form class="navbar-form pull-left" action="basic" method="POST">
+                    <input type="hidden" name="command" value="lang">
+                    <input type="hidden" name="who" value="guest">
+                    <input type="hidden" name="lang" value="en_EN">
+                    <button class="btn  btn-info" type="submit" name="EN">
+                        EN
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <nav class="navbar navbar-default">
     <div class="container-fluid text-center"

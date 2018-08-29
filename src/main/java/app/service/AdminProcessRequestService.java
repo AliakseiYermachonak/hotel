@@ -54,7 +54,6 @@ public class AdminProcessRequestService {
      * @return  Request needed to be processed.
      */
     public Request acceptNewRequest() {
-        //request.setIdRequestStatus(2);
         daoRequest.update(request);
         return request;
     }

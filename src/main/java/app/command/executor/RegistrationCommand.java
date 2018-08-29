@@ -48,10 +48,12 @@ public class RegistrationCommand implements Command {
             message = LOGIN_BUSY;
             LOGGER.debug("User with suchlike login exists.");
         } else if (password.equals(rePassword)) {
-            String s = password+login.hashCode();
-            String encryptedPassword = new PasswordEncodingService().encrypt(s);
-            user = new User(login, encryptedPassword);
+
+            user = new User(login, password);
             if (new NewUserValidator().validate(user)) {
+                String s = password+login.hashCode();
+                String encryptedPassword = new PasswordEncodingService().encrypt(s);
+                user.setPassword(encryptedPassword);
                 daoUser.insert(user);
                 User newUser=new DaoUser().get(login);
                 session.setAttribute("user", newUser);

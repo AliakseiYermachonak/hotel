@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://localhost:8080/hotel/">
+            <a class="navbar-brand" href="http://localhost:8080/index.jsp">
                 <fmt:message key="index.hotel" />
             </a>
 
