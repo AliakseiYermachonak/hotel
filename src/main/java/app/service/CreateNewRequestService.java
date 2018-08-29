@@ -3,6 +3,7 @@ package app.service;
 import app.db.dao.DaoRequest;
 import app.db.entity.Request;
 import app.db.entity.User;
+import app.service.helper.NewRequestHelper;
 import app.service.validator.NewRequestValidator;
 import org.apache.log4j.Logger;
 
@@ -39,14 +40,17 @@ public class CreateNewRequestService {
         session.removeAttribute("idRoomType");
 
         if (idRoomType != null) {
-            String[] params = {req.getParameter("date"),
-                    req.getParameter("nDays"),
-                    idRoomType,
-                    req.getParameter("nRooms"),
-                    req.getParameter("willing")};
+
+            NewRequestHelper newRequestHelper = new NewRequestHelper();
+            newRequestHelper.setDate(req.getParameter("date"));
+            newRequestHelper.setIdRoomType(idRoomType);
+            newRequestHelper.setnDays(req.getParameter("nDays"));
+            newRequestHelper.setnRooms(req.getParameter("nRooms"));
+            newRequestHelper.setWilling(req.getParameter("willing"));
+            
 
             User user = (User) session.getAttribute("user");
-            Request request = new NewRequestValidator().paramValidator(user.getIdUser(), params);
+            Request request = new NewRequestValidator().paramValidator(user.getIdUser(), newRequestHelper);
 
             if (new NewRequestValidator().validate(request)) {
                 new DaoRequest().insert(request.getIdUser(), request.getDate(), request.getDays(), request.getIdRoomType(),

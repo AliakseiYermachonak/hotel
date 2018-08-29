@@ -1,6 +1,7 @@
 package app.service.validator;
 
 import app.db.entity.Request;
+import app.service.helper.NewRequestHelper;
 import org.apache.log4j.Logger;
 
 import java.text.ParseException;
@@ -25,7 +26,7 @@ public class NewRequestValidator implements Validator<Request> {
         return result;
     }
 
-    public Request paramValidator(int id, String[] params){
+    public Request paramValidator(int id, NewRequestHelper newRequestHelper){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
         int idUser = id;
@@ -36,9 +37,9 @@ public class NewRequestValidator implements Validator<Request> {
 
         try {
 
-            if (params[0] != null) {
+            if (newRequestHelper.getDate() != null) {
                 try {
-                    date = sdf.parse(params[0]);
+                    date = sdf.parse(newRequestHelper.getDate());
                 } catch (ParseException e) {
                     LOGGER.debug("Convertation date error in new request");
                     e.printStackTrace();
@@ -46,17 +47,17 @@ public class NewRequestValidator implements Validator<Request> {
             } else {
 
             }
-            if (params[1] != null) {
-                days = Integer.parseInt(params[1]);
+            if (newRequestHelper.getnDays() != null) {
+                days = Integer.parseInt(newRequestHelper.getnDays());
             }
-            if (params[2] != null) {
-                roomType = Integer.parseInt(params[2]);
+            if (newRequestHelper.getIdRoomType() != null) {
+                roomType = Integer.parseInt(newRequestHelper.getIdRoomType());
             }
-            if (params[3] != null) {
-                rooms = Integer.parseInt(params[3]);
+            if (newRequestHelper.getnRooms() != null) {
+                rooms = Integer.parseInt(newRequestHelper.getnRooms());
             }
-            if (params[4] != null){
-                if (params[4].equals("toBook")) {reqStatus = 5;}
+            if (newRequestHelper.getWilling() != null){
+                if (newRequestHelper.getWilling().equals("toBook")) {reqStatus = 5;}
                 else {reqStatus = 1;}
             }
         } catch (NumberFormatException e) {
