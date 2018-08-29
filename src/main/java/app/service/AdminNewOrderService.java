@@ -3,9 +3,11 @@ package app.service;
 import app.db.dao.DaoBusyness;
 import app.db.dao.DaoOrder;
 import app.db.dao.DaoRequest;
+import app.db.dao.DaoUserInfo;
 import app.db.entity.Busyness;
 import app.db.entity.Order;
 import app.db.entity.Request;
+import app.db.entity.UserInfo;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -73,6 +75,7 @@ public class AdminNewOrderService {
             request.setIdRequestStatus(4);
             daoRequest.update(request);
             writeBusyness(request, room, idReqStat);
+            writeLoyality();
 
             session.removeAttribute("idReqStat");
             session.removeAttribute("orders");
@@ -118,5 +121,16 @@ public class AdminNewOrderService {
             document = docInput.trim().split(" ");
         }
         return document;
+    }
+
+    private void writeLoyality(){
+        String document = req.getParameter("userInfo");
+        int docType = Integer.parseInt(document.split(" ")[0]);
+        String docNumber = document.split(" ")[1];
+        DaoUserInfo daoUserInfo = new DaoUserInfo();
+        UserInfo userInfo = daoUserInfo.get(docNumber, docType);
+        userInfo.setOrdersDone(userInfo.getOrdersDone() + 1);
+
+        daoUserInfo.update(userInfo);
     }
 }

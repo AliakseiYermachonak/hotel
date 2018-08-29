@@ -52,19 +52,19 @@ public class DaoUserInfo implements DaoEntity<UserInfo> {
 	public void update(UserInfo ob) {
 		Connection cn = ConnectionPool.getInstance().getConnection();
 		try {
-			PreparedStatement ps = cn.prepareStatement("INSERT INTO user_info VALUES (?,?,?,?,?,?,?,?)");
-			ps.setString(1, ob.getDocumentNumber());
-			ps.setInt(2, ob.getDocumentType());
-			ps.setInt(3, ob.getIdUser());
-			ps.setString(4, ob.getName());
-			ps.setString(5, ob.getSurname());
-			ps.setString(6, ob.getPhoneNumber());
-			ps.setString(7, ob.getEmail());
-			ps.setInt(8, ob.getOrdersDone());
+            PreparedStatement ps = cn.prepareStatement("UPDATE user_info SET id_user= ?, name = ?, surname = ?, phone_number = ?, email = ?, orders_done = ? WHERE document_number = ? AND  document_type = ?");
+            ps.setInt(1, ob.getIdUser());
+            ps.setString(2, ob.getName());
+            ps.setString(3, ob.getSurname());
+            ps.setString(4, ob.getPhoneNumber());
+            ps.setString(5, ob.getEmail());
+            ps.setInt(6, ob.getOrdersDone());
+            ps.setString(7, ob.getDocumentNumber());
+            ps.setInt(8, ob.getDocumentType());
 
-			ps.execute();
+            ps.execute();
 
-		} catch (SQLException e) {
+        } catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
             ConnectionPool.getInstance().closeConnection(cn);
@@ -79,16 +79,11 @@ public class DaoUserInfo implements DaoEntity<UserInfo> {
 	public void delete(UserInfo ob) {
 		Connection cn = ConnectionPool.getInstance().getConnection();
 		try {
-			PreparedStatement ps = cn.prepareStatement("UPDATE user_info SET id_user= ?, name = ?, surname = ?, phone_number = ?, email = ?, orders_done = ? WHERE document_number = ? AND  document_type = ?");
-			ps.setInt(1, ob.getIdUser());
-			ps.setString(2, ob.getName());
-			ps.setString(3, ob.getSurname());
-			ps.setString(4, ob.getPhoneNumber());
-			ps.setString(5, ob.getEmail());
-			ps.setInt(6, ob.getOrdersDone());
-			ps.setString(7, ob.getDocumentNumber());
-			ps.setInt(8, ob.getDocumentType());
-			
+
+			PreparedStatement ps = cn.prepareStatement("DELETE FROM user_info WHERE document_number = ? AND  document_type = ?");
+			ps.setString(1, ob.getDocumentNumber());
+			ps.setInt(2, ob.getDocumentType());
+
 			ps.execute();
 
 		} catch (SQLException e) {

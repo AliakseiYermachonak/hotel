@@ -110,7 +110,7 @@ public class AdminProcessRequestService {
 
     /**
      * Identifier of the processed request.
-     * @return int identifier of therequest status.
+     * @return int identifier of the request status.
      */
     public int getIdReqStat(){
         return idReqStat;
@@ -118,7 +118,7 @@ public class AdminProcessRequestService {
 
     /**
      * Identifier of the processed request.
-     * @return int identifier of therequest status.
+     * @return List of united user information.
      */
     public List<UUserInfo> getUserInfo(){
             List<UUserInfo> uUserInfos = new UserInfoService(request.getIdUser()).getUserInfos();
