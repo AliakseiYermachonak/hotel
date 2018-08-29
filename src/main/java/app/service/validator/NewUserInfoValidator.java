@@ -22,8 +22,8 @@ public class NewUserInfoValidator implements Validator<UserInfo> {
             return false;
         }
 
-        return ((userInfo.getDocumentNumber().matches("^[a-zA-Z0-9][a-zA-Zа-яА-Я0-9-_\\.]{1,30}$"))
-                && ((userInfo.getName().isEmpty())||(userInfo.getSurname().isEmpty()))
+        return ((!userInfo.getDocumentNumber().isEmpty())
+                && (!(userInfo.getName().isEmpty())||!(userInfo.getSurname().isEmpty()))
                 && ((userInfo.getDocumentType() > 0)&&(userInfo.getDocumentType() < 6)));
     }
 

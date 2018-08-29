@@ -65,6 +65,7 @@
                                     <input type="hidden" name="command" value="processUser"/>
                                     <input type="hidden" name="choice" value="userInfo"/>
                                     <input type="hidden" name="idUser" value="${uUsers.idUser}"/>
+                                    <input type="hidden" name="menu" value="userInfo"/>
                                     <button class="btn btn-info" type="submit" name="not OK">
                                         <fmt:message key="admin.info" />
                                     </button>

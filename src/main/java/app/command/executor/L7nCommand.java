@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 public class L7nCommand implements Command {
 
     private static final Logger LOGGER = Logger.getLogger(L7nCommand.class);
-    private final String URL = "index.jsp";
+    private static final String URL = "index.jsp";
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {

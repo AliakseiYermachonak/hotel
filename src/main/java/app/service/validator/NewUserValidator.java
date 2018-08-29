@@ -14,9 +14,6 @@ public class NewUserValidator implements Validator<User> {
 
     @Override
     public boolean validate(User user) {
-        LOGGER.debug(user);
-        LOGGER.debug(user.getLogin().matches("^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я0-9-_\\.]{1,20}$"));
-        LOGGER.debug(user.getPassword().matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$"));
 
         return (user.getLogin().matches("^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я0-9-_\\.]{1,20}$") &&
                 user.getPassword().matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$"));
